@@ -20,24 +20,75 @@ let displayLink = document.querySelector(".display-link")
 
 
 // task 7: create and populate an array to store your image urls. Create three more arrays. One to store your song names, one for the artists, and a last one for the song links.
-// let songCovers = ["i.scdn.co/image/ab67616d0000b273c31acd76454b29586f1121b4" , "i.scdn.co/image/ab67616d0000b27380caf18e0ad32956cd798510" , "images.genius.com/49b96efe6e740e4912120869f9e6c153.999x999x1.png", "https://images.genius.com/acf60de742463718d2d86dc40ef7cabf.640x640x1.png" , "https://images.genius.com/7529650ee543d2c662962aa1613cba77.1000x1000x1.jpg"];
-// let songNames = ["Snot" , "Death Blooms" , "(sic)" , "Good God" , "Now I Lay Thee Down"];
-// let songArtists = ["Snot" , "Mudvayne" , "Slipknot" , "Korn" , "Machine Head"];
-// let songLinks = ["https://www.youtube.com/watch?v=5nFCl-5PqUc" , "https://www.youtube.com/watch?v=9nVvojfQVBY" ,"https://www.youtube.com/watch?v=m3I3-KTJbtY" , "https://www.youtube.com/watch?v=mM3qOxHdcCU" , "https://www.youtube.com/watch?v=wQLQC4ln05o"];
+/*
+let songCovers = [
+"https://imgur.com/Hn8GgzJ.jpg" , 
+"https://imgur.com/9jeK0sg.jpg" , "https://imgur.com/d1MycQ6.jpg", 
+"https://imgur.com/iO5XbJS.jpg" , 
+"https://imgur.com/2DjUTOO.jpg"
+];
+let songNames = [
+"Snot" , 
+"Death Blooms" , 
+"(sic)" ,
+"Good God" , 
+"Now I Lay Thee Down"
+];
+let songArtists = [
+"Snot" , 
+"Mudvayne" , 
+"Slipknot" , 
+"KoRn" , 
+"Machine Head"
+];
+let songLinks = [
+"https://www.youtube.com/embed/LNCkKgJ7Aws" , 
+"https://www.youtube.com/embed/9nVvojfQVBY", 
+"https://www.youtube.com/embed/m3I3-KTJbtY" ,
+"https://www.youtube.com/embed/GHkUCSeTi2I" , 
+"https://www.youtube.com/embed/1xpiEBde9fo"
+];
+*/
 
-// task 8:
-
-for (let i = 0; i < cars.length; i++) {
-  let imgElement = "document.createElement("img")";
-}
 //REFACTOR ARRAYS DAY 
 // task 11: comment out the arrays data.
 
 // task 12: create an object for each of your songs.
+let song1 = {
+  name: "Snot" ,
+  artist: "Snot" ,
+  link: "https://www.youtube.com/embed/LNCkKgJ7Aws" , 
+  image: "https://imgur.com/Hn8GgzJ.jpg" 
+};
+let song2 = {
+  name: "Death Blooms" ,
+  artist: "Mudvayne" ,
+  link: "https://www.youtube.com/embed/9nVvojfQVBY",
+  image: "https://imgur.com/9jeK0sg.jpg"
+};
+let song3 = {
+  name: "(sic)" ,
+  artist: "Slipknot" ,
+  link: "https://www.youtube.com/embed/m3I3-KTJbtY" , 
+  image: "https://imgur.com/d1MycQ6.jpg" ,
+};
+let song4 = {
+  name: "Good God" ,
+  artist: "KoRn" ,
+  link: "https://www.youtube.com/embed/GHkUCSeTi2I" ,
+  image: "https://imgur.com/iO5XbJS.jpg"
+};
+
+let song5 = {
+  name: "Aesthetics of Hate" ,
+  artist: "Machine Head" ,
+  link: "https://www.youtube.com/embed/NWks-8C9RMs" ,
+  image: "https://imgur.com/2DjUTOO.jpg"
+};
 // task 13: inside each object, add key/value pairs to store the image url, song name, artist, and song link.
 // task 14: create an array that stores all of the objects.
 
-
+let playlist = [song1 , song2 , song3 , song4 , song5];
 
 //REFACTOR LOOPS DAY 
 // task 15: update your `addSongInfo` function so the input values are saved in as values in a new object.
@@ -51,13 +102,18 @@ for (let i = 0; i < cars.length; i++) {
 function addSongInfo() {
 
 // task 9: declare a variable to save the user input of the image url. Declare three more variables that save user input: One for the song names, one for the artists, and a last one for the song links.
-
+let newSong = {};
+newSong.image = (image).value;
+newSong.name = (songName).value;
+newSong.arist = (artist).value;
+newSong.link = (songLink).value;
 
 // task 10: use `.push()` to add each input value to the correct array.
+  
+playlist.push(newSong)
 
+emptyDisplay()
 }
-
-
 
 
 /******** this function empties the display divs each time the button is clicked so that your playlist does not repeatedly add the data too many times. Where should this function be placed???********/
@@ -70,18 +126,40 @@ function emptyDisplay() {
 
 
 
-
 function displaySongInfo() {
 
 // task 8: loop through your images array and display the images to your songs in the correct div. Create three more loops. One for the song names, one for the artists, and a last one for the song links.
 
+  playlist.forEach(function(song) {
+  let image = document.createElement("img");
+  image.src= song.image
+  displayImage.appendChild(image);
+});
+
+playlist.forEach(function(song) {
+  let name = document.createElement("p");
+  name.innerHTML = song.name;
+  displaySong.appendChild(name);
+});
+
+playlist.forEach(function(song) {
+  let artist = document.createElement("p");
+  artist.innerHTML = song.artist;
+  displayArtist.appendChild(artist);
+});
+
+playlist.forEach(function(song) {
+  let link = document.createElement("iframe");
+  link.src = song.link;
+  link.style.width = "150px";
+  link.style.height = "150px";
+  link.style.display = "block";
+  displayLink.appendChild(link);
+});
+
 
 
 }
-
-
-
-
 
 // click event to add and display songs
 add.onclick = function() {
