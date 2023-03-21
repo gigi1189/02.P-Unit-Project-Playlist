@@ -19,6 +19,9 @@ let displayArtist = document.querySelector(".display-artist")
 let displayLink = document.querySelector(".display-link")
 
 
+
+
+
 // task 7: create and populate an array to store your image urls. Create three more arrays. One to store your song names, one for the artists, and a last one for the song links.
 /*
 let songCovers = [
@@ -96,9 +99,6 @@ let playlist = [song1 , song2 , song3 , song4 , song5];
 // task 17: update your loops based on your new array of objects.
 
 
-
-
-
 function addSongInfo() {
 
 // task 9: declare a variable to save the user input of the image url. Declare three more variables that save user input: One for the song names, one for the artists, and a last one for the song links.
@@ -134,21 +134,15 @@ function displaySongInfo() {
   let image = document.createElement("img");
   image.src= song.image
   displayImage.appendChild(image);
-});
-
-playlist.forEach(function(song) {
+    
   let name = document.createElement("p");
   name.innerHTML = song.name;
   displaySong.appendChild(name);
-});
-
-playlist.forEach(function(song) {
+    
   let artist = document.createElement("p");
   artist.innerHTML = song.artist;
   displayArtist.appendChild(artist);
-});
-
-playlist.forEach(function(song) {
+    
   let link = document.createElement("iframe");
   link.src = song.link;
   link.style.width = "150px";
@@ -156,10 +150,20 @@ playlist.forEach(function(song) {
   link.style.display = "block";
   displayLink.appendChild(link);
 });
-
-
-
 }
+
+
+// let body = document.querySelector("body");
+/* playlist.forEach(function(song){
+  let songGroup = document.createElement("div");
+    songGroup.appendChild(displayImage);
+    songGroup.appendChild(displaySong);
+    songGroup.appendChild(displayArtist);
+    songGroup.appendChild(displayLink);
+    body.appendChild(songGroup);
+  console.log(song)
+}); 
+*/
 
 // click event to add and display songs
 add.onclick = function() {

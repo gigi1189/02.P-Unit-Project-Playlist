@@ -24,7 +24,7 @@ h1 {
   display: flex;
   justify-content: space-around;
   border-top: 5px solid black;
-  background-color: rgba(76, 175, 80, 0.3)
+  background-color: #b30000;
 }
 
 @media screen and (max-width: 600px) {
@@ -45,7 +45,6 @@ h1 {
   padding: 70px 0px 70px;
   height: 100px;
   font-weight: bold;
-  
 }
 
 .display-artist p {
@@ -83,7 +82,7 @@ button {
 }
 
 body {
-  background: url(https://i.pinimg.com/originals/b8/4f/41/b84f4195a6d33c93d01111287c0c7b7e.jpg);
+  background: #100909;
 color: white;
 }
 
